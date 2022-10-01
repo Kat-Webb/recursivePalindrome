@@ -2,7 +2,7 @@
 using namespace std;
 
 
-bool palindrome1(int counter, string palindrome, int i ){
+void palindrome1(int counter, string palindrome, int i ){
     if((palindrome[i] == palindrome[counter]) && i < counter ){
         counter --;
         i++;
