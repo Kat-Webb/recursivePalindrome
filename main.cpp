@@ -2,17 +2,18 @@
 using namespace std;
 
 
-void palindrome1(int counter, string palindrome, int i ){
+bool isPalindrome(int counter, string palindrome, int i ){
     if((palindrome[i] == palindrome[counter]) && i < counter ){
         counter --;
         i++;
-        palindrome1(counter, palindrome, i);}
+        return isPalindrome(counter, palindrome, i);}
+
     else if(palindrome[i] != palindrome[counter]){
-        cout << "This is not a palindrome.";}
+        return false;}
     else if(palindrome[i] == palindrome[counter] && i >= counter){
-        cout << "This is a palindrome!";
+        return true;
     }
-};
+}
 int main() {
     string palindrome ="";
     cout << "Please enter a string to check to see if it's a palindrome";
@@ -22,6 +23,12 @@ int main() {
     int counter = length-1;
 
     int i = 0;
-    palindrome1( counter,  palindrome,  i);
+    bool isPal = isPalindrome( counter,  palindrome,  i);
+    if (isPal){
+        cout << "This is a Palindrome!";
+    }
+    else
+        cout << "This is not a palindrome.";
     return 0;
 }
+
